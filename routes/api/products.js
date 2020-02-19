@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const productsController = require("../../controllers/productsController");
 
-console.log("inside routes file")
 // Matches with "/api/products"
 router
   .route("/")
@@ -10,7 +9,7 @@ router
 
 // Matches with "/api/products/:id"
 router
-  .route("/:id")
+  .route("/search/:id")
   .get(productsController.findById)
   .put(productsController.update)
   .delete(productsController.remove);
@@ -19,6 +18,5 @@ router
 router
   .route("/category")
   .get(productsController.findByClass)
-
 
 module.exports = router;

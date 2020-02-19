@@ -1,13 +1,13 @@
 import React, {useEffect} from "react";
-import {SET_CURRENT_PRODUCT, ADD_PRODUCT, REMOVE_PRODUCT, LOADING} from "../../utils/actions";
-import {useStoreContext} from "../../utils/GlobalState";
-import API from "../../utils/API";
+import {SET_CURRENT_PRODUCT, ADD_PRODUCT, REMOVE_PRODUCT, LOADING} from "../utils/actions";
+import {useStoreContext} from "../utils/GlobalState";
+import API from "../utils/API";
 import Image from "react-bootstrap/Image";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Product.css";
+
 
 const Product = (props) =>{
     const [state,dispatch] = useStoreContext();

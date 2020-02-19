@@ -23,6 +23,7 @@ module.exports = {
       req.query.q = "mobile";
     }
     console.log("REQ CONTR: ", req.query.q);
+    // res.json(true);
     axios
       .get(
         `https://api.bestbuy.com/v1/products(departmentId=

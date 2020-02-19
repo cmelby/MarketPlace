@@ -10,7 +10,7 @@ import {UPDATE_PRODUCT_LIST, SET_SEARCH_TERM, LOADING} from "../../utils/actions
 import API from "../../utils/API"
 import {Link} from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Navbar.css";
+
 
 const MyNavbar = () => {
   const [state,dispatch] = useStoreContext();
@@ -40,16 +40,16 @@ const MyNavbar = () => {
   }
     return (
     <div>
-      <Navbar bg="dark" variant="dark">
-        <Link className="navbar-brand" to="/home">Marketplace<small> (powered by Best Buy)</small> </Link>
-        <Nav className="mr-auto">
+      <Navbar bg="primary" variant="dark">
+        <Link className="navbar-brand" to="/home">Best Buy<small></small> </Link>
+        <Nav className="mr-auto text-white">
           <Link className="nav-link" to="/home">Home</Link>
-          <Link className="nav-link" to="/cart">Cart</Link>
+          <Link className="nav-link" to="/cart"><i className="fas fa-shopping-cart"></i></Link>
           <span className="nav-link pointer" onClick={handleShow}>Login</span>
         </Nav>
         <Form onSubmit={e=>{e.preventDefault();}} inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" ref={searchRef}/>
-          <Link to="/home"><Button variant="outline-info" onClick={()=>handleSearch()}>Search</Button></Link>
+          <Link to="/home"><Button variant="success" onClick={()=>handleSearch()}>Search</Button></Link>
         </Form>
       </Navbar>
 

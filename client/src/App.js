@@ -5,7 +5,7 @@ import './App.css';
 import Navbar from "./components/Navbar/Index";
 import Home from "./pages/Home";
 import Product from "./pages/Product";
-import Cart from "./pages/Cart";
+import Cart from "./pages/ShoppingCart";
 import { StoreProvider } from "./utils/GlobalState";
 
 function App() {

@@ -1,12 +1,12 @@
   
 import React, {useEffect} from "react";
-import API from "../../utils/API";
+import API from "../utils/API";
 import Container from "react-bootstrap/Container";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
-import {UPDATE_CART_LIST, LOADING, REMOVE_PRODUCT} from "../../utils/actions";
-import {useStoreContext} from "../../utils/GlobalState";
+import {UPDATE_CART_LIST, LOADING, REMOVE_PRODUCT} from "../utils/actions";
+import {useStoreContext} from "../utils/GlobalState";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Cart = () =>{

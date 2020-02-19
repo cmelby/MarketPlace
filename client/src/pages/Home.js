@@ -4,12 +4,12 @@ import CardColumns from "react-bootstrap/CardColumns";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import Spinner from "react-bootstrap/Spinner";
-import API from "../../utils/API";
+import API from "../utils/API";
 import { Link } from "react-router-dom";
-import {UPDATE_PRODUCT_LIST, LOADING} from "../../utils/actions";
-import {useStoreContext} from "../../utils/GlobalState";
+import {UPDATE_PRODUCT_LIST, LOADING} from "../utils/actions";
+import {useStoreContext} from "../utils/GlobalState";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Landing.css";
+
 
 const Landing = () => {
     const [state,dispatch] = useStoreContext();
