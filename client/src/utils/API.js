@@ -8,7 +8,7 @@ export default {
         return axios.get(`/api/products/search/${sku}`);
     },
     addProduct: productObj => {
-        return axios.post("/api/products", productObj);
+        return axios.post("/api/products",productObj);
     },
     removeProduct: sku => {
         return axios.delete(`/api/products/search/${sku}`);

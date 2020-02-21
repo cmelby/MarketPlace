@@ -2,7 +2,6 @@
 import React, {useEffect} from "react";
 import CardColumns from "react-bootstrap/CardColumns";
 import Card from "react-bootstrap/Card";
-import Image from "react-bootstrap/Image";
 import Spinner from "react-bootstrap/Spinner";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -37,13 +36,14 @@ const Landing = () => {
                 <CardColumns className="mt-3">
                     {state.productList.length ? (
                         state.productList.map((product,index)=>(
-                            <Card key={index}>
-                                <Image src={product.image} className="mx-auto mt-2 product-list-image"/>
-                                <Card.Body>
-                                    <Card.Title><Link to={"/product/" + product.sku}>{product.name}</Link></Card.Title>
-                                    <h3>Price: ${product.regularPrice}</h3>
-                                </Card.Body>
-                            </Card>
+                        <Card key={index} style={{ width: '18rem' }} className="shadow-sm">
+                            <Card.Img variant="top"  className="ml-5 pl-5 pt-5" src={product.image} style={{ width: '20%' }}/>
+                            <Card.Body>
+                                <Card.Title><Link to={"/product/" + product.sku}>{product.name}</Link></Card.Title>
+                                <h3>Price: ${product.regularPrice}</h3>
+                                <Card.Text className="text-truncate" >{product.shortDescription}</Card.Text>
+                            </Card.Body>
+                        </Card>
                         ))
                     ):(
                         <h1>No Results</h1>

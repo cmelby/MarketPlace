@@ -2,12 +2,12 @@ import React, {useEffect} from "react";
 import {SET_CURRENT_PRODUCT, ADD_PRODUCT, REMOVE_PRODUCT, LOADING} from "../utils/actions";
 import {useStoreContext} from "../utils/GlobalState";
 import API from "../utils/API";
-import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner"
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Row, Col } from "react-bootstrap";
 
 const Product = (props) =>{
     const [state,dispatch] = useStoreContext();
@@ -80,19 +80,44 @@ const Product = (props) =>{
     return(
         <div className="mt-3">
             {state.loading ? (<Spinner animation="border" className="loading"/>) : (
-            <Container className="mb-5">
-                <Image src={state.currentProduct.thumbnail_url} className="mx-auto product-info-image"/>
-                <h3 className="mt-2 text-center">{state.currentProduct.title}</h3>
-                <h6 className="mt-w text-center">Sold by: {state.currentProduct.seller}</h6>
-                <h3 className="text-center"><span className="bg-dark text-white px-2">${state.currentProduct.price}</span></h3>
-                <hr/>
-                <h5>Product Description:</h5>
-                <p>{state.currentProduct.description}</p>
-                {checkCartList() ? (
-                    <Button variant="danger" size="lg" onClick={()=>removeFromCart()}>Remove from Cart</Button>
-                ) : (
-                    <Button variant="success" size="lg" onClick={()=>addToCart()}>Add to Cart</Button>
-                )}
+            <Container className="mb-5 justify-content-center">
+                <Row>
+                    <Card className="shadow-sm p-3"  >
+                <Row>
+                    <Col>
+                        <Card.Img 
+                        src={state.currentProduct.thumbnail_url} 
+                        style={{ width: '18rem' }}  
+                        className="mx-auto"/>
+                    </Col>
+                    <Col className="float-right">
+                        <Row>
+                            <Card.Title className="mt-2 float-right text-left">{state.currentProduct.title}</Card.Title>
+                        </Row>
+                        <Row>
+                            <Card.Text className="mt-w float-right text-left">Sold by: 
+                            {state.currentProduct.seller}
+                            </Card.Text>
+                            
+                            <Card.Text className="text-left">
+                                {state.currentProduct.description}
+                            </Card.Text>
+                        </Row>
+                        <Row>
+                            <h2 className="float-left"><span 
+                                className="px-2">
+                                ${state.currentProduct.price}</span></h2>
+                        </Row>
+                        {checkCartList() ? (
+                            <Button variant="danger" className="text-center" size="lg" onClick={()=>removeFromCart()}>Remove from Cart</Button>
+                        ) : (
+                            <Button variant="success" className=" text-center" size="lg" onClick={()=>addToCart()}>Add to Cart</Button>
+                        )}
+                        </Col>
+                    </Row>
+                    </Card>
+           
+                </Row>
             </Container>
             )}
         </div>
