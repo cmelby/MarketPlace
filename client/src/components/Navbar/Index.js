@@ -41,7 +41,7 @@ const MyNavbar = () => {
     return (
     <div>
       <Navbar bg="primary" variant="dark">
-        <Link className="navbar-brand" to="/home">Best Buy<small></small> </Link>
+        <Link className="navbar-brand" to="/home"><strong>Online Market</strong></Link>
         <Nav className="mr-auto text-white">
           <Link className="nav-link" to="/home">Home</Link>
           <Link className="nav-link" to="/cart"><i className="fas fa-shopping-cart"></i></Link>
