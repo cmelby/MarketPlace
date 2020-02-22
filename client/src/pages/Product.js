@@ -11,8 +11,6 @@ import { Row, Col } from "react-bootstrap";
 
 const Product = (props) =>{
     const [state,dispatch] = useStoreContext();
-    // console.log(state.currentProduct);
-    // console.log(state.cartList);
 
     const getProductInfo = () => {
         dispatch({type: LOADING});

@@ -6,9 +6,10 @@ import Container from "react-bootstrap/Container";
 import Carousel from 'react-bootstrap/Carousel';
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Spinner from "react-bootstrap/Spinner";
+import Button from "react-bootstrap/Button";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import {UPDATE_PRODUCT_LIST, LOADING} from "../utils/actions";
+import {UPDATE_PRODUCT_LIST, LOADING, ADD_PRODUCT } from "../utils/actions";
 import {useStoreContext} from "../utils/GlobalState";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -23,6 +24,17 @@ const Landing = () => {
                 dispatch({
                     type: UPDATE_PRODUCT_LIST,
                     productList: res.data
+                });
+            }).catch(err =>{
+                console.log(err);
+            });
+    };
+    const addToCart = () => {
+        API.addProduct(state.currentProduct)
+            .then(()=>{
+                dispatch({
+                    type: ADD_PRODUCT,
+                    product: state.currentProduct
                 });
             }).catch(err =>{
                 console.log(err);
@@ -44,30 +56,30 @@ const Landing = () => {
       alt="First slide"
     />
     <Carousel.Caption>
+        
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
       style={{heigth: "300px"}}
-      src="https://cnet4.cbsistatic.com/img/Cy_16sIzu0lsQPwr028jIErjnAE=/2017/10/25/fe670436-9b70-4b56-ba1c-91a097a74b91/best-buy-apple-sale.png"
+      src="https://images.frys.com/art/deals/tralfaz/OLED_TV_Landing_Page_17-10-2016/images/lgbanner01.jpg"
       alt="Third slide"
     />
 
     <Carousel.Caption>
+    <h2 className="text-black">Find The Greatest Selection of Products Directly From The Best Buy API</h2>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
       style={{heigth: "300px"}}
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRv7Uxpacy1TXWnDPfNyn_iTTHX25KdtKZCj0m_S-8u64yyTNQP"
+      src="https://www.lg.com/us/images/MC/features/V50-Banner-D.jpg"
       alt="Third slide"
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
@@ -82,6 +94,8 @@ const Landing = () => {
                                 <Card.Title><Link to={"/product/" + product.sku}>{product.name}</Link></Card.Title>
                                 <h3>Price: ${product.regularPrice}</h3>
                                 <Card.Text className="text-truncate" >{product.shortDescription}</Card.Text>
+                                    <Button href={"/product/" + product.sku}>View Product</Button>
+                                <Button variant="success" className="ml-1 text-center" size="md" onClick={()=>addToCart()}>View Product</Button>
                             </Card.Body>
                         </Card>
                         ))
@@ -97,6 +111,7 @@ const Landing = () => {
                         <p>
                             Online Maketplace carries all the top products for every categorie straight from Best Buy.
                         </p>
+                        
                     </Container>
                 </Jumbotron>
         </div>
