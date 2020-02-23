@@ -95,7 +95,7 @@ const Landing = () => {
                                 <h3>Price: ${product.regularPrice}</h3>
                                 <Card.Text className="text-truncate" >{product.shortDescription}</Card.Text>
                                     <Button href={"/product/" + product.sku}>View Product</Button>
-                                <Button variant="success" className="ml-1 text-center" size="md" onClick={()=>addToCart()}>View Product</Button>
+                                <Button variant="success" className="ml-1 text-center" size="md" onClick={()=>addToCart()}>Add to Cart</Button>
                             </Card.Body>
                         </Card>
                         ))

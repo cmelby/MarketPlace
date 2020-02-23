@@ -60,11 +60,12 @@ const Cart = () =>{
                                     <td className="align-middle"><h5>${product.price}</h5></td>
                                     <td className="align-middle"><input className="table-item" value={1}></input></td>
                                     <td className="align-middle"><Button variant="danger" className="mx-auto remove-btn" onClick={()=>removeFromCart(product.sku)}>X</Button></td>
+                
                                 </tr>
                             ))}
                         </tbody>
                     </Table>
-                    <Button variant="success" size="lg">Checkout</Button>
+                    <Button href={"/payment"}>Checkout</Button>
                 </Container>
             ):(
                 <h3 className="text-center mt-5">Your cart is empty!</h3>

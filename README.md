@@ -6,7 +6,7 @@ Online Marketplace leverages Best Buys API to pull in products to the main page 
 
 
 ## Demo
-![Site](demo.gif) 
+![Site](sitedemo.gif) 
 
  
 ## Technologies Used
