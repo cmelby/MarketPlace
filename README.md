@@ -5,7 +5,9 @@
 Online Marketplace leverages Best Buys API to pull in products to the main page where the user can then click into catagories, search for products, add items to cart, and delete items form their cart. The user can also view individual products. This application was built using a react front end that pulls from the API based on user actions and renders components using setState. 
 
 
+
 ## Demo
+This application is deeployed on Heroku at:  https://ancient-savannah-99735.herokuapp.com/
 ![Site](sitedemo.gif) 
 
  
@@ -48,7 +50,7 @@ With this snippet of code we are geetting products from the best buy API and set
 * [npmjs](https://docs.npmjs.com/)
 * [Express.js](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/)
-* [Morgan](https://www.npmjs.com/package/morgan)
+
 
 ## Authors
 
